@@ -82,7 +82,7 @@ const IndexPage = () => (
         style={{ marginBottom: `var(--space-3)` }}
       />
       <h1>
-        Welcome to <b>Gatsby!</b>
+        <p>Welcome to my SitePoint demo Site!</p>
       </h1>
       <p className={styles.intro}>
         <b>Example pages:</b>{" "}
