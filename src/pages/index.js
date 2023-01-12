@@ -44,6 +44,7 @@ const samplePageLinks = [
   { text: "TypeScript", url: "using-typescript" },
   { text: "Server Side Rendering", url: "using-ssr" },
   { text: "Deferred Static Generation", url: "using-dsg" },
+  { text: "About", url: "about" },  
 ]
 
 const moreLinks = [
@@ -92,8 +93,6 @@ const IndexPage = () => (
             {i !== samplePageLinks.length - 1 && <> · </>}
           </React.Fragment>
         ))}
-        <> · </>
-        <Link to="/about/">About</Link>
         <br />
         Edit <code>src/pages/index.js</code> to update this page.
       </p>
