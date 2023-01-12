@@ -92,6 +92,7 @@ const IndexPage = () => (
             {i !== samplePageLinks.length - 1 && <> · </>}
           </React.Fragment>
         ))}
+        <Link to="/about/">About</Link>
         <br />
         Edit <code>src/pages/index.js</code> to update this page.
       </p>
