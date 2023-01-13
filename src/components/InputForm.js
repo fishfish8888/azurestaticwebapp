@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const FORM_ENDPOINT = ""; // TODO - fill on the later step
+const FORM_ENDPOINT = "https://func-aks-log-query.azurewebsites.net/api/akslogquery"; // TODO - fill on the later step
 
 const InputForm = () => {
   const [submitted, setSubmitted] = useState(false);
