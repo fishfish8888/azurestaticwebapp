@@ -4,6 +4,10 @@ import { useEffect } from "react";
 import Form from "../components/Form";
 
 function App() {
+  // You can skip useEffect if you're not using TailwindCSS
+  // Otherwise, for the production usage refer to https://tailwindcss.com/docs/installation
+  useEffect(() => {}, []);
+
   return (
     <div className="App">
       <header className="App-header">
