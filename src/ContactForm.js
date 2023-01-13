@@ -30,7 +30,7 @@ const ContactForm = () => {
         <input
           type="text"
           placeholder="Site domain name, e.g. www.example.com"
-          name="host"
+          name="hostname"
           className="px-3 py-3 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
           required
         />
