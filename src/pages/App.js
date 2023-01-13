@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 
 function App() {
-  const baseURL = "http://localhost:8080/api";
+  const baseURL = "https://func-aks-log-query.azurewebsites.net/api/akslogquery";
 
   const post_hostname = useRef(null);
   const post_namespace = useRef(null);
@@ -19,7 +19,7 @@ function App() {
     };
 
     try {
-      const res = await fetch(`${baseURL}/tutorials`, {
+      const res = await fetch(`${baseURL}`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
