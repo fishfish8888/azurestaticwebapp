@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import logo from "../images/gatsby-icon.png";
 import "./App.css";
 import { useEffect } from "react";
 import Form from "../components/Form";
