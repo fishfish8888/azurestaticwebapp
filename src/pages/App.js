@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useEffect } from "react";
-import Form from "./Form";
+import Form from "../components/Form";
 
 function App() {
   // You can skip useEffect if you're not using TailwindCSS
