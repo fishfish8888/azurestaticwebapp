@@ -59,10 +59,10 @@ function App() {
       <div className="card-header">AKS Container Service Log Query</div>
       <div className="card-body">
         <div className="form-group">
-          <input type="text" className="form-control" ref={post_title} placeholder="Title" />
+          <input type="text" className="form-control" ref={post_title} placeholder="Host Name" />
         </div>
         <div className="form-group">
-          <input type="text" className="form-control" ref={post_description} placeholder="Description" />
+          <input type="text" className="form-control" ref={post_description} placeholder="NameSpace" />
         </div>
         <button className="btn btn-sm btn-primary" onClick={postData}>Post Data</button>
         <button className="btn btn-sm btn-warning ml-2" onClick={clearPostOutput}>Clear</button>
