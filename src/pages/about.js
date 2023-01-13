@@ -9,8 +9,8 @@ import * as styles from "../components/index.module.css"
 
 const AboutPage = () => (
 <Layout>
-  <h1>About Me</h1>
-  <FancyParagraph paragraphText="Styled with CSS Modules." />
+ <h1>About Me</h1>
+ <FancyParagraph paragraphText="Styled with CSS Modules." />
 </Layout>
 )
 
