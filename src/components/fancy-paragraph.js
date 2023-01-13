@@ -1,6 +1,6 @@
 import * as React from "react"
-import fancyParagraphStyles from "./fancy-paragraph.module.css"
+import { fancy } "./fancy-paragraph.module.css"
 
-const FancyParagraph = (props) => <p className={fancyParagraphStyles}>{props}</p>
+const FancyParagraph = (props) => <p className={fancy}>{props}</p>
 
 export default FancyParagraph
