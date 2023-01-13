@@ -1,62 +1,74 @@
-import "./App.css";
-import { useState } from "react";
+import React, { useRef, useState } from "react";
 
 function App() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [mobileNumber, setMobileNumber] = useState("");
-  const [message, setMessage] = useState("");
+  const baseURL = "http://localhost:8080/api";
 
-  let handleSubmit = async (e) => {
-    e.preventDefault();
+  const post_title = useRef(null);
+  const post_description = useRef(null);
+
+  const [postResult, setPostResult] = useState(null);
+
+  const fortmatResponse = (res) => {
+    return JSON.stringify(res, null, 2);
+  }
+  
+  async function postData() {
+    const postData = {
+      title: post_title.current.value,
+      description: post_description.current.value,
+    };
+
     try {
-      let res = await fetch("https://httpbin.org/post", {
-        method: "POST",
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          mobileNumber: mobileNumber,
-        }),
+      const res = await fetch(`${baseURL}/tutorials`, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+          "x-access-token": "token-value",
+        },
+        body: JSON.stringify(postData),
       });
-      let resJson = await res.json();
-      if (res.status === 200) {
-        setName("");
-        setEmail("");
-        setMessage("User created successfully");
-      } else {
-        setMessage("Some error occured");
+
+      if (!res.ok) {
+        const message = `An error has occured: ${res.status} - ${res.statusText}`;
+        throw new Error(message);
       }
+
+      const data = await res.json();
+
+      const result = {
+        status: res.status + "-" + res.statusText,
+        headers: {
+          "Content-Type": res.headers.get("Content-Type"),
+          "Content-Length": res.headers.get("Content-Length"),
+        },
+        data: data,
+      };
+
+      setPostResult(fortmatResponse(result));
     } catch (err) {
-      console.log(err);
+      setPostResult(err.message);
     }
-  };
-
+  }
+  
+  const clearPostOutput = () => {
+    setPostResult(null);
+  }
+  
   return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={name}
-          placeholder="Name"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          value={email}
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="text"
-          value={mobileNumber}
-          placeholder="Mobile Number"
-          onChange={(e) => setMobileNumber(e.target.value)}
-        />
+    <div className="card">
+      <div className="card-header">React Fetch POST - BezKoder.com</div>
+      <div className="card-body">
+        <div className="form-group">
+          <input type="text" className="form-control" ref={post_title} placeholder="Title" />
+        </div>
+        <div className="form-group">
+          <input type="text" className="form-control" ref={post_description} placeholder="Description" />
+        </div>
+        <button className="btn btn-sm btn-primary" onClick={postData}>Post Data</button>
+        <button className="btn btn-sm btn-warning ml-2" onClick={clearPostOutput}>Clear</button>
 
-        <button type="submit">Create</button>
-
-        <div className="message">{message ? <p>{message}</p> : null}</div>
-      </form>
+        { postResult && <div className="alert alert-secondary mt-2" role="alert"><pre>{postResult}</pre></div> }
+      </div>
     </div>
   );
 }
