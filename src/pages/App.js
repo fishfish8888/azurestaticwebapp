@@ -33,11 +33,11 @@ function App() {
         throw new Error(message);
       }
       
-     const contentType = res.headers.get("Content-Type");
-     if (!contentType || !contentType.includes('application/json')) {
-       const message = `Oops, we haven't got JSON!: ${contentType}`;
-       throw new Error(message);
-     }
+#     const contentType = res.headers.get("Content-Type");
+#     if (!contentType || !contentType.includes('application/json')) {
+#       const message = `Oops, we haven't got JSON!: ${contentType}`;
+#       throw new Error(message);
+#     }
       
      return response.json();
 
