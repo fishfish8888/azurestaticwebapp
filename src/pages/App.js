@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 
 function App() {
-  const baseURL = "https://func-aks-log-query.azurewebsites.net/api/akslogquery";
+  const baseURL = "http://localhost:8080/api";
 
   const post_title = useRef(null);
   const post_description = useRef(null);
@@ -14,17 +14,16 @@ function App() {
   
   async function postData() {
     const postData = {
-      hostname: post_hostname.current.value,
-      namespace: post_namespace.current.value,
-      
+      title: post_title.current.value,
+      description: post_description.current.value,
     };
 
     try {
-      const res = await fetch(`${baseURL}`, {
+      const res = await fetch(`${baseURL}/tutorials`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
-          "x-functions-key": "MS05dXZs0mNErKREIZ7vJDQ2FTpefsGZMoKZHo7FaDDiAzFuJPw9Yw",
+          "x-access-token": "token-value",
         },
         body: JSON.stringify(postData),
       });
@@ -57,13 +56,13 @@ function App() {
   
   return (
     <div className="card">
-      <div className="card-header">AKS Containter Service Log Query</div>
+      <div className="card-header">React Fetch POST - BezKoder.com</div>
       <div className="card-body">
         <div className="form-group">
-          <input type="text" className="form-control" ref={post_hostname} placeholder="HostName" />
+          <input type="text" className="form-control" ref={post_title} placeholder="Title" />
         </div>
         <div className="form-group">
-          <input type="text" className="form-control" ref={post_namespace} placeholder="Namespace" />
+          <input type="text" className="form-control" ref={post_description} placeholder="Description" />
         </div>
         <button className="btn btn-sm btn-primary" onClick={postData}>Post Data</button>
         <button className="btn btn-sm btn-warning ml-2" onClick={clearPostOutput}>Clear</button>
