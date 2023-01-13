@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import InputForm from "./InputForm
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -49,6 +50,9 @@ const IndexPage = () => (
         Edit <code>src/pages/index.js</code> to update this page.
       </p>
     </div>
+    <div className="pt-6">
+      <InputForm />
+    </div
   </Layout>
 )
 
