@@ -1,5 +1,5 @@
 import * as React from "react"
-import { fancy } "./fancy-paragraph.module.css"
+import { fancy } from "./fancy-paragraph.module.css"
 
 const FancyParagraph = (props) => <p className={fancy}>{props}</p>
 
