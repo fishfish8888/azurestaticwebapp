@@ -68,7 +68,7 @@ function App() {
         <button className="btn btn-sm btn-primary" onClick={postData}>Post Data</button>
         <button className="btn btn-sm btn-warning ml-2" onClick={clearPostOutput}>Clear</button>
 
-#        { postResult && <div className="alert alert-secondary mt-2" role="alert"><pre>{postResult}</pre></div> }
+        { postResult && <div className="alert alert-secondary mt-2" role="alert"><pre>{postResult}</pre></div> }
       </div>
     </div>
   );
