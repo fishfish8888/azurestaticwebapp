@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-
 const FORM_ENDPOINT = ""; // TODO - fill on the later step
 
-const InputForm = () => {
+const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const handleSubmit = () => {
     setTimeout(() => {
@@ -67,4 +64,4 @@ const InputForm = () => {
   );
 };
 
-export default InputForm;
+export default ContactForm;
