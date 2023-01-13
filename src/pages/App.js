@@ -23,7 +23,7 @@ function App() {
         method: "post",
         headers: {
           "Content-Type": "application/json",
-          "x-functions-key": "MS05dXZs0mNErKREIZ7vJDQ2FTpefsGZMoKZHo7FaDDiAzFuJPw9Yw",
+          "x-functions-key": "MS05dXZs0mNErKREIZ7vJDQ2FTpefsGZMoKZHo7FaDDiAzFuJPw9Yw==",
         },
         body: JSON.stringify(postData),
       });
