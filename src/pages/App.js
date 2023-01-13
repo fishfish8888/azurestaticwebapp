@@ -40,8 +40,6 @@ function App() {
 *       throw new Error(message);
 *     }
 */
-      
-     return response.json();
 
       const data = await res.json();
 
