@@ -1,23 +1,44 @@
-import logo from "../images/gatsby-icon.png";
-import "../components/App.css";
-import { useEffect } from "react";
-import Form from "../components/Form";
+import { useState, useEffect } from 'react';
 
-function App() {
-  // You can skip useEffect if you're not using TailwindCSS
-  // Otherwise, for the production usage refer to https://tailwindcss.com/docs/installation
-  useEffect(() => {}, []);
+const App = () => {
+   const [posts, setPosts] = useState([]);
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <div className="py-6">
-          <Form />
-        </div>
-      </header>
-    </div>
-  );
-}
+   useEffect(() => {
+      fetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
+         .then((res) => res.json())
+         .then((data) => {
+            console.log(data);
+            setPosts(data);
+         })
+         .catch((err) => {
+            console.log(err.message);
+         });
+   }, []);
+
+   return (
+      <>
+         <div className="add-post-container">
+            <form>
+               <input type="text" className="form-control" />
+               <textarea className="form-control" cols="10" rows="8"></textarea>
+               <button type="submit">Add Post</button>
+            </form>
+         </div>
+         <div className="posts-container">
+            {posts.map((post) => {
+               return (
+                  <div className="post-card" key={post.id}>
+                     <h2 className="post-title">{post.title}</h2>
+                     <p className="post-body">{post.body}</p>
+                     <div className="button">
+                        <div className="delete-btn">Delete</div>
+                     </div>
+                  </div>
+               );
+            })}
+         </div>
+      </>
+   );
+};
 
 export default App;
