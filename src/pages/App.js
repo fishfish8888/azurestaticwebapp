@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 
 function App() {
-  const baseURL = "http://localhost:8080/api";
+  const baseURL = "https://func-aks-log-query.azurewebsites.net/api/akslogquery";
 
   const post_title = useRef(null);
   const post_description = useRef(null);
@@ -14,16 +14,17 @@ function App() {
   
   async function postData() {
     const postData = {
-      title: post_title.current.value,
-      description: post_description.current.value,
+      hostname: post_hostname.current.value,
+      namespace: post_namespace.current.value,
+      
     };
 
     try {
-      const res = await fetch(`${baseURL}/tutorials`, {
+      const res = await fetch(`${baseURL}`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
-          "x-access-token": "token-value",
+          "x-functions-key": "MS05dXZs0mNErKREIZ7vJDQ2FTpefsGZMoKZHo7FaDDiAzFuJPw9Yw",
         },
         body: JSON.stringify(postData),
       });
@@ -56,18 +57,18 @@ function App() {
   
   return (
     <div className="card">
-      <div className="card-header">React Fetch POST - BezKoder.com</div>
+      <div className="card-header">AKS Containter Service Log Query</div>
       <div className="card-body">
         <div className="form-group">
-          <input type="text" className="form-control" ref={post_title} placeholder="Title" />
+          <input type="text" className="form-control" ref={post_hostname} placeholder="HostName" />
         </div>
         <div className="form-group">
-          <input type="text" className="form-control" ref={post_description} placeholder="Description" />
+          <input type="text" className="form-control" ref={post_namespace} placeholder="Namespace" />
         </div>
         <button className="btn btn-sm btn-primary" onClick={postData}>Post Data</button>
         <button className="btn btn-sm btn-warning ml-2" onClick={clearPostOutput}>Clear</button>
 
-        { postResult && <div className="alert alert-secondary mt-2" role="alert"><pre>{postResult}</pre></div> }
+#        { postResult && <div className="alert alert-secondary mt-2" role="alert"><pre>{postResult}</pre></div> }
       </div>
     </div>
   );
