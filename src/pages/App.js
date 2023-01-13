@@ -56,7 +56,7 @@ function App() {
   
   return (
     <div className="card">
-      <div className="card-header">React Fetch POST - BezKoder.com</div>
+      <div className="card-header">AKS Container Service Log Query</div>
       <div className="card-body">
         <div className="form-group">
           <input type="text" className="form-control" ref={post_title} placeholder="Title" />
