@@ -3,8 +3,8 @@ import React, { useRef, useState } from "react";
 function App() {
   const baseURL = "http://localhost:8080/api";
 
-  const post_title = useRef(null);
-  const post_description = useRef(null);
+  const post_hostname = useRef(null);
+  const post_namespace = useRef(null);
 
   const [postResult, setPostResult] = useState(null);
 
@@ -14,8 +14,8 @@ function App() {
   
   async function postData() {
     const postData = {
-      title: post_title.current.value,
-      description: post_description.current.value,
+      hostname: post_hostname.current.value,
+      namespace: post_namespace.current.value,
     };
 
     try {
@@ -23,7 +23,7 @@ function App() {
         method: "post",
         headers: {
           "Content-Type": "application/json",
-          "x-access-token": "token-value",
+          "x-functions-key": "MS05dXZs0mNErKREIZ7vJDQ2FTpefsGZMoKZHo7FaDDiAzFuJPw9Yw",
         },
         body: JSON.stringify(postData),
       });
@@ -59,10 +59,10 @@ function App() {
       <div className="card-header">AKS Container Service Log Query</div>
       <div className="card-body">
         <div className="form-group">
-          <input type="text" className="form-control" ref={post_title} placeholder="Host Name" />
+          <input type="text" className="form-control" ref={post_hostname} placeholder="Host Name" />
         </div>
         <div className="form-group">
-          <input type="text" className="form-control" ref={post_description} placeholder="NameSpace" />
+          <input type="text" className="form-control" ref={post_namespace} placeholder="NameSpace" />
         </div>
         <button className="btn btn-sm btn-primary" onClick={postData}>Post Data</button>
         <button className="btn btn-sm btn-warning ml-2" onClick={clearPostOutput}>Clear</button>
