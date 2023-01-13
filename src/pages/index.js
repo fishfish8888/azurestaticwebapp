@@ -16,7 +16,7 @@ const IndexPage = () => (
         <p>Azure AKS Log Query</p>
       </h1>
     </div>
-    <div className="log_query_form">
+    <div className={styles.textCenter}>
       <ContactForm />
     </div>
   </Layout>
