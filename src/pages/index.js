@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 import InputForm from "../components/InputForm";
 
 import Layout from "../components/layout"
