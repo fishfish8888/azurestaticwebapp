@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import InputForm from "./InputForm;
+import ContactForm from "../ContactForm";
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -51,7 +51,7 @@ const IndexPage = () => (
       </p>
     </div>
       <div className="pt-6">
-        <InputForm />
+        <ContactForm />
       </div>
   </Layout>
 )
