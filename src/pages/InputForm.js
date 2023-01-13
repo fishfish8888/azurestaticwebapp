@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const FORM_ENDPOINT = ""; // TODO - fill on the later step
 
-const ContactForm = () => {
+const InputForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const handleSubmit = () => {
     setTimeout(() => {
@@ -64,4 +64,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default InputForm;
