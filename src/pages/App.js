@@ -1,5 +1,5 @@
 import logo from "../images/gatsby-icon.png";
-import "./App.css";
+import "../components/App.css";
 import { useEffect } from "react";
 import Form from "../components/Form";
 
