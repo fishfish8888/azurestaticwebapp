@@ -38,17 +38,6 @@ const IndexPage = () => (
       <h1>
         <p>Welcome to my SitePoint demo Site!</p>
       </h1>
-      <p className={styles.intro}>
-        <b>Example pages:</b>{" "}
-        {samplePageLinks.map((link, i) => (
-          <React.Fragment key={link.url}>
-            <Link to={link.url}>{link.text}</Link>
-            {i !== samplePageLinks.length - 1 && <> · </>}
-          </React.Fragment>
-        ))}
-        <br />
-        Edit <code>src/pages/index.js</code> to update this page.
-      </p>
     </div>
       <div className="pt-6">
         <ContactForm />
