@@ -7,11 +7,6 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
-
-require("dotenv").config({
-  path: `.env_func_app_api`,
-})
-
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
